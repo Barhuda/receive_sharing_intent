@@ -57,8 +57,9 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
     // By Adding bundle id to prefix, we'll ensure that the correct application will be openned
     // - found the issue while developing multiple applications using this library, after "application(_:open:options:)" is called, the first app using this librabry (first app by bundle id alphabetically) is opened
     public func hasMatchingSchemePrefix(url: URL?) -> Bool {
+        print(url)
         if let url = url, let appDomain = Bundle.main.bundleIdentifier {
-            print(url)
+
             return url.absoluteString.hasPrefix("\(self.customSchemePrefix)-\(appDomain)")
         }
         return false
