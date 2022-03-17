@@ -58,6 +58,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
     // - found the issue while developing multiple applications using this library, after "application(_:open:options:)" is called, the first app using this librabry (first app by bundle id alphabetically) is opened
     public func hasMatchingSchemePrefix(url: URL?) -> Bool {
         if let url = url, let appDomain = Bundle.main.bundleIdentifier {
+            print(url)
             return url.absoluteString.hasPrefix("\(self.customSchemePrefix)-\(appDomain)")
         }
         return false
